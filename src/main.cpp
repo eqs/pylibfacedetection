@@ -6,7 +6,7 @@ int add(int i, int j) {
 	return i + j;
 }
 
-PYBIND11_MODULE(libfacedetection_wrapper, m) {
+PYBIND11_MODULE(clibfacedetection, m) {
 	m.doc() = "Python binding of libfacedetection";
 
 	m.def("add", &add, "example function");

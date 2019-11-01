@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(libfacedetection_wrapper)
+project(clibfacedetection)
 
 add_subdirectory(pybind11)
-pybind11_add_module(libfacedetection_wrapper src/main.cpp)
+pybind11_add_module(clibfacedetection src/main.cpp)

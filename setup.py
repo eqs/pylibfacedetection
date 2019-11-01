@@ -83,7 +83,8 @@ setup(
 
     install_requires=[],
     cmdclass={'build_ext': CMakeBuild},
-    ext_modules=[CMakeExtension('libfacedetection')],
+    ext_modules=[CMakeExtension('pylibfacedetection.backend.clibfacedetection')],
+    zip_safe=False,
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
