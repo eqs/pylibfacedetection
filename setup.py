@@ -77,7 +77,7 @@ setup(
     author_email="murashige.satoshi.mi1 [at] is.naist.jp",
 
     description="Python binding of libfacedetection",
-    long_description=read("README.rst"),
+    long_description=read("README.md"),
 
     packages=find_packages(exclude=('tests',)),
 
