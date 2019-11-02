@@ -26,6 +26,8 @@ Compatibility
 Licence
 -------
 
+BSD
+
 Authors
 -------
 

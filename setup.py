@@ -71,7 +71,7 @@ setup(
     name="pylibfacedetection",
     version="0.0.1",
     url="https://github.com/eqs/pylibfacedetection",
-    license='MIT',
+    license='BSD',
 
     author="eqs",
     author_email="murashige.satoshi.mi1 [at] is.naist.jp",
@@ -88,6 +88,7 @@ setup(
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
 )
