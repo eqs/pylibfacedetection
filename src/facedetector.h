@@ -9,6 +9,5 @@ class FaceDetector {
 public:
 	FaceDetector();
 
-	template <typename T>
-	py::array_t<int> detect(py::array_t<T> image);
-}
+	py::array_t<int> detect(const py::array_t<int> & image);
+};

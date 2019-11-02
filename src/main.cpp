@@ -1,14 +1,13 @@
 #include <pybind11/pybind11.h>
-#include "facedetectcnn.h"
+#include <pybind11/numpy.h>
+#include "facedetector.h"
 
 namespace py = pybind11;
-
-int add(int i, int j) {
-	return i + j;
-}
 
 PYBIND11_MODULE(clibfacedetection, m) {
 	m.doc() = "Python binding of libfacedetection";
 
-	m.def("add", &add, "example function");
-}
+	py::class_<FaceDetector>(m, "FaceDetector")
+		.def(py::init<>())
+		.def("detect", (py::array_t<int> (FaceDetector::*)(const py::array_t<int> &)) &FaceDetector::detect);
+};

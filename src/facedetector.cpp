@@ -9,7 +9,7 @@ FaceDetector::FaceDetector() {
 
 }
 
-py::array_t<int> FaceDetector::detect(py::array_t<T> image) {
+py::array_t<int> FaceDetector::detect(const py::array_t<int> & image) {
 
 	// Initialize detection buffer
 	int *pResults = NULL;
@@ -26,9 +26,9 @@ py::array_t<int> FaceDetector::detect(py::array_t<T> image) {
 	pResults = facedetect_cnn(pBuffer, (unsigned char*)(buff_info.ptr), shape[0], shape[1], shape[2]);
 	int nResults = (pResults ? *pResults : 0);
 
-	py::array_t<int> result_array{ nResults, 6 };
+	auto result_array = py::array_t<int>({nResults, 6});
 
-	for (int k = 0; k < ; k++) {
+	for (int k = 0; k < nResults; k++) {
 		short *p = ((short*)(pResults + 1)) + 142 * k;
 		int x = p[0];
 		int y = p[1];
@@ -45,7 +45,7 @@ py::array_t<int> FaceDetector::detect(py::array_t<T> image) {
 		*result_array.mutable_data(k, 6) = angle;
 	}
 
-	free(pBuffer);
+	std::free(pBuffer);
 
 	return result_array;
 }
