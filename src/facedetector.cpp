@@ -13,7 +13,7 @@ py::array_t<int> FaceDetector::detect(const py::array_t<int> & image) {
 
 	// Initialize detection buffer
 	int *pResults = NULL;
-	unsigned char *pBuffer = (unsigned char *)malloc(DETECT_BUFFER_SIZE);
+	unsigned char *pBuffer = (unsigned char *)std::malloc(DETECT_BUFFER_SIZE);
 
 	if (!pBuffer) {
 		throw std::exception("Cannot alloc buffer.\n");
