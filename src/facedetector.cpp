@@ -23,7 +23,11 @@ py::array_t<int> FaceDetector::detect(py::array_t<unsigned char> image) {
 	const auto &buff_info = image.request();
 	const auto &shape = buff_info.shape;
 
-	pResults = facedetect_cnn(pBuffer, (unsigned char*)(buff_info.ptr), shape[1], shape[0], 1);
+	if (shape.size() != 3 || shape[2] != 3) {
+		throw std::exception("Invalid image size.\n");
+	}
+
+	pResults = facedetect_cnn(pBuffer, (unsigned char*)(buff_info.ptr), shape[1], shape[0], shape[1] * 3);
 	int nResults = (pResults ? *pResults : 0);
 
 	auto result_array = py::array_t<int>({nResults, 6});
@@ -42,7 +46,7 @@ py::array_t<int> FaceDetector::detect(py::array_t<unsigned char> image) {
 		*result_array.mutable_data(k, 2) = w;
 		*result_array.mutable_data(k, 3) = h;
 		*result_array.mutable_data(k, 4) = confidence;
-		*result_array.mutable_data(k, 6) = angle;
+		*result_array.mutable_data(k, 5) = angle;
 	}
 
 	std::free(pBuffer);
