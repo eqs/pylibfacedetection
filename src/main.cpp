@@ -9,5 +9,5 @@ PYBIND11_MODULE(clibfacedetection, m) {
 
 	py::class_<FaceDetector>(m, "FaceDetector")
 		.def(py::init<>())
-		.def("detect", (py::array_t<int> (FaceDetector::*)(const py::array_t<int> &)) &FaceDetector::detect);
+		.def("detect", (py::array_t<int> (FaceDetector::*)(py::array_t<unsigned char>)) &FaceDetector::detect);
 };

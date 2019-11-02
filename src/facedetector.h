@@ -9,5 +9,5 @@ class FaceDetector {
 public:
 	FaceDetector();
 
-	py::array_t<int> detect(const py::array_t<int> & image);
+	py::array_t<int> detect(py::array_t<unsigned char> image);
 };
