@@ -9,7 +9,7 @@ pylibfacedetection
    :target: https://travis-ci.com/eqs/pylibfacedetection
    :alt: Latest Travis CI build status
 
-Python binding of libfacedetection
+`pylibfacedetection` is a Python binding of libfacedetection (https://github.com/ShiqiYu/libfacedetection).
 
 Usage
 -----
@@ -56,4 +56,5 @@ BSD
 Authors
 -------
 
-`pylibfacedetection` was written by `eqs <murashige.satoshi.mi1 [at] is.naist.jp>`_.
+eqs (https://www.eqseqs.work)
+
